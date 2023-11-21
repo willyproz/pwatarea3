@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJERCICIO 4</title>
+    <style>
+        #reloj {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 10px solid #333;
+            border-radius: 50%;
+            background: #bababb url('img/RELOJaNALOGICO.png') no-repeat center center/cover;
+        }
+        .manecilla {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            /*background: #000;*/
+            left: 50%;
+            top: 50%;
+            transform-origin: 1px 1px;
+        }
+       
+        #hora {
+            z-index: 2;
+            width: 2x;
+            height: 75px;
+            background: blue;
+            border: 1px solid blue;
+            transform: rotate(180deg);
+        }
+        #minuto {
+            z-index: 1;
+            width: 2x;
+            height: 95px;
+            background: black;
+            border: 1px solid black;
+            transform: rotate(180deg);
+        }
+        #segundo {
+            z-index: 3;
+            width: 1px;
+            height: 130px;
+            background: red;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="reloj">
+        <img id="hora" src="img/MANECILLArELOJ.png" class="manecilla" >
+        <img id="minuto" src="img/MANECILLArELOJ.png" class="manecilla" >
+        <img id="segundo" class="manecilla" >
+    </div>
+
+    <script>
+        var gradIni = 180;
+        function actualizarReloj() {
+
+            let fecha = new Date();
+            let horas = fecha.getHours();
+            let minutos = fecha.getMinutes();
+            let segundos = fecha.getSeconds();
+
+            let hora = document.getElementById('hora');
+            let minuto = document.getElementById('minuto');
+            let segundo = document.getElementById('segundo');
+
+            let horaGrados = ((horas % 12) * 30) + (minutos / 2);
+            let minutoGrados = minutos * 6;
+            let segundoGrados = segundos * 6;
+
+           hora.style.transform = `rotate(${(parseInt(gradIni) + parseFloat(horaGrados))}deg)`;
+            minuto.style.transform = `rotate(${(parseInt(gradIni) + parseFloat(minutoGrados))}deg)`;
+            segundo.style.transform = `rotate(${(parseInt(gradIni) + parseFloat(segundoGrados))}deg)`;
+        }
+
+        setInterval(actualizarReloj, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJERCICIO 7</title>
+    <style>
+        /* Estilos de los botones del menú */
+        .menuPrincipal {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Estilos de los submenús */
+        .submenu {            
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .submenu li {
+            padding: 8px;
+            background-color: #2980b9;
+            color: #fff;
+            margin-bottom: 3px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Menú de Navegación</h2>
+
+    <button class="menuPrincipal" onclick="toggleSubMenu(1)">Elemento 1</button>
+    <ul class="submenu" style="display: none;" id="submenu1">
+        <li>Submenú 1</li>
+        <li>Submenú 2</li>
+        <li>Submenú 3</li>
+    </ul>
+
+    <button class="menuPrincipal" onclick="toggleSubMenu(2)">Elemento 2</button>
+    <ul class="submenu" style="display: none;" id="submenu2">
+        <li>Submenú A</li>
+        <li>Submenú B</li>
+    </ul>
+
+    <button class="menuPrincipal" onclick="toggleSubMenu(3)">Elemento 3</button>
+    <ul class="submenu" style="display: none;" id="submenu3">
+        <li>Submenú X</li>
+        <li>Submenú Y</li>
+        <li>Submenú Z</li>
+    </ul>
+
+    <script>
+        function toggleSubMenu(subMenuId) {
+            var submenu = document.getElementById('submenu' + subMenuId);
+            if (submenu.style.display === 'none') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

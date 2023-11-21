@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJERCICIO 9</title>
+</head>
+<body>
+    <h2>Temporizador de Cuenta Regresiva</h2>
+    <p id="cuentaRegresiva"></p>
+
+    <script>
+        
+        const fechaLimite = new Date('2023-12-31T23:59:59'); //establecer fecha limite
+
+        function actualizarCuentaRegresiva() {
+            const ahora = new Date().getTime();
+            const tiempoRestante = fechaLimite - ahora;
+
+            const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+            document.getElementById("cuentaRegresiva").innerHTML = `Tiempo restante: ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+            if (tiempoRestante < 0) {
+                clearInterval(temporizador);
+                document.getElementById("cuentaRegresiva").innerHTML = "¡Tiempo terminado!";
+            }
+        }
+        const temporizador = setInterval(actualizarCuentaRegresiva, 1000);
+    </script>
+</body>
+</html>

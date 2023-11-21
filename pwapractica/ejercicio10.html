@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJERCICIO 10</title>
+</head>
+<body>
+    <h2>Juego de Preguntas y Respuestas</h2>
+
+    <div id="preguntas">
+        <p id="pregunta1">1. ¿Cuál es la capital de Francia?</p>
+        <input type="radio" id="opcion1_1" name="opcion1" value="Paris">
+        <label for="opcion1_1">Paris</label><br>
+        <input type="radio" id="opcion1_2" name="opcion1" value="Londres">
+        <label for="opcion1_2">Londres</label><br>
+        <input type="radio" id="opcion1_3" name="opcion1" value="Madrid">
+        <label for="opcion1_3">Madrid</label><br><br>
+
+        <p id="pregunta2">2. ¿En qué año comenzó la Primera Guerra Mundial?</p>
+        <input type="radio" id="opcion2_1" name="opcion2" value="1914">
+        <label for="opcion2_1">1914</label><br>
+        <input type="radio" id="opcion2_2" name="opcion2" value="1939">
+        <label for="opcion2_2">1939</label><br>
+        <input type="radio" id="opcion2_3" name="opcion2" value="1945">
+        <label for="opcion2_3">1945</label><br><br>
+
+        <p id="pregunta3">3. ¿Cuál es el planeta más grande del sistema solar?</p>
+        <input type="radio" id="opcion3_1" name="opcion3" value="Marte">
+        <label for="opcion3_1">Marte</label><br>
+        <input type="radio" id="opcion3_2" name="opcion3" value="Júpiter">
+        <label for="opcion3_2">Júpiter</label><br>
+        <input type="radio" id="opcion3_3" name="opcion3" value="Tierra">
+        <label for="opcion3_3">Tierra</label><br><br>
+
+        <button onclick="calcularPuntuacion()">Calcular Puntuación</button>
+    </div>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularPuntuacion() {
+            let puntuacion = 0;
+
+            let respuesta1 = document.querySelector('input[name="opcion1"]:checked').value;
+            if (respuesta1 === "Paris") {
+                puntuacion++;
+            }
+
+            let respuesta2 = document.querySelector('input[name="opcion2"]:checked').value;
+            if (respuesta2 === "1914") {
+                puntuacion++;
+            }
+
+            let respuesta3 = document.querySelector('input[name="opcion3"]:checked').value;
+            if (respuesta3 === "Júpiter") {
+                puntuacion++;
+            }
+
+            let resultado = document.getElementById("resultado");
+            resultado.innerHTML = `Tu puntuación es: ${puntuacion} de 3`;
+        }
+    </script>
+</body>
+</html>

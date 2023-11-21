@@ -1,0 +1,490 @@
+<style>
+    @import 'https://fonts.googleapis.com/css?family=Lato';
+
+    /*   Variables   */
+    /*   End of Variables   */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html {
+        box-sizing: border-box;
+    }
+
+    * {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: "Lato", sans-serif;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    /*  End Resets  */
+    .container {
+        background-color: rgb(233, 29, 63);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boton {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #f31313;
+        color: white;
+        border: 1px solid #f31313;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Estilo al pasar el mouse por encima del botón */
+    .boton:hover {
+        background-color: #d3d0d0;
+        border: 1px solid #f31313;
+        color: #f31313;
+        cursor: pointer;
+    }
+
+    .box {
+        width: 1100px;
+        height: 900px;
+        background-color: white;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .left-bar {
+        position: relative;
+        z-index: 5;
+        width: 80px;
+        height: 100%;
+        background: #FF4E50;
+        background: linear-gradient(180deg, #FF2C55, #FF4E2D);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-bar span {
+        padding: 5px;
+    }
+
+    .left-bar>span {
+        cursor: pointer;
+        transform: scale(1, 1);
+        transition: all ease-in-out 150ms;
+    }
+
+    .left-bar>span:hover {
+        transform: scale(1.2, 1.2);
+    }
+
+    .left-bar>span:first-child {
+        margin-top: 20px;
+        color: white;
+        font-size: 26px;
+    }
+
+    .left-bar>span:last-child {
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 500px;
+        font-size: 20px;
+    }
+
+    .menu-group {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 70px;
+    }
+
+    .menu-group>span {
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transform: scale(1);
+        transition: all ease-in-out 150ms;
+    }
+
+    .menu-group>span:hover {
+        transform: scale(1.2, 1.2);
+    }
+
+    .menu-group .active {
+        color: white;
+    }
+
+    .menu-group .active:after {
+        content: "";
+        position: absolute;
+        margin-left: 3px;
+        margin-top: -4px;
+        padding: 4px;
+        background-color: yellow;
+        border-radius: 50%;
+        box-shadow: 0 0 5px 2px rgba(255, 255, 0, 0.5);
+    }
+
+    .building {
+        font-size: 14px;
+        display: flex;
+        color: rgba(255, 255, 255, 0.5);
+        transform: scale(1);
+        transition: all ease-in-out 150ms;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .building:hover {
+        transform: scale(1.2, 1.2);
+    }
+
+    .building>span {
+        padding: 0;
+    }
+
+    .building>span:nth-child(1) {
+        font-size: 10px;
+        align-self: flex-end;
+    }
+
+    .building.active:after {
+        content: "";
+        position: absolute;
+        margin-left: 22px;
+        margin-top: -4px;
+        padding: 4px;
+        background-color: yellow;
+        border-radius: 50%;
+        box-shadow: 0 0 5px 2px rgba(255, 255, 0, 0.5);
+    }
+
+    .wrapper {
+        flex: 1;
+    }
+
+    .top-bar {
+        position: relative;
+        display: flex;
+        height: 60px;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    .top-bar>span {
+        margin-left: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #FF2C55;
+    }
+
+    .cta-button {
+        cursor: pointer;
+        position: absolute;
+        bottom: -45%;
+        right: 3.5%;
+        width: 50px;
+        height: 50px;
+        background-color: #FF2C55;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+        transition: all ease-in-out 150ms;
+    }
+
+    .cta-button:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.46);
+        transform: translateY(-5px);
+    }
+
+    .cta-button>span {
+        color: white;
+        font-size: 30px;
+    }
+
+    .menu {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 45px;
+    }
+
+    .menu span {
+        color: #FF2C55;
+    }
+
+    .menu span:nth-child(n+2) {
+        cursor: pointer;
+    }
+
+    .search {
+        margin-left: 30px;
+    }
+
+    .search input {
+        margin-left: 15px;
+        border: none;
+    }
+
+    .list-info {
+        margin-right: 30px;
+    }
+
+    .list-info span:nth-child(1) {
+        margin-right: 40px;
+    }
+
+    .list-info span:nth-child(2) {
+        margin-right: 20px;
+    }
+
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        width: 21%;
+        height: 195px;
+        margin: 15px 0 30px;
+        box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover .overlay {
+        opacity: 1;
+    }
+
+    .number {
+        z-index: 6;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        background-color: #FF2C55;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 7px 1px rgba(255, 44, 85, 0.5);
+    }
+
+    .number>span {
+        color: white;
+        font-weight: bold;
+    }
+
+    .overlay {
+        opacity: 0;
+        background: #FF4E50;
+        background: linear-gradient(90deg, rgba(255, 44, 85, 0.7), rgba(255, 78, 45, 0.7));
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all ease-in-out 200ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .img {
+        background-color: pink;
+        height: 50%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img img {
+        width: 160px;
+        height: 130px;
+    }
+
+    .product-name {
+        font-family: "Lato", sans-serif;
+        font-weight: bold;
+        color: #FF2C55;
+        margin-top: 10px;
+    }
+
+    .detail>span {
+        cursor: pointer;
+    }
+
+    .detail>span:nth-child(1) {
+        width: 80%;
+        height: 20px;
+        background-color: transparent;
+        padding: 10px 40px;
+        border-radius: 50px;
+        border: 3px solid white;
+        color: white;
+    }
+
+    .detail>span:nth-child(2) {
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 19px;
+    }
+
+    .oculto {
+        display: none;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="container ">
+    <div class="box">
+        <div class="left-bar">
+            <div class="menu-group" style="margin:0">
+                <img style="width: 100%;"
+                    src="data:image/png;base64,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"
+                    alt="Logo UBE" class="img-fluid">
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="top-bar"><span class="cloud">TAREAS PROGRAMACIÓN WEB AVANZADA</span><span class="cloud"> <a onclick="$('#regresar').addClass('oculto');$('#deberTarea1').addClass('oculto');$('#menuPrincipal').removeClass('oculto');" class="boton oculto" id="regresar"> <<< Regresar</a></span>
+            </div>
+
+            <!--INICIO-->
+            <div  id="deberTarea1">
+                <div class="grid ">
+                    <!--EJERCICIO 1-->
+                    <div class="card">
+                        <div class="img" style="background-color: #f31313;"></div>
+                        <div class="product-name"><span>EJERCICIO 1</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio1" target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 2-->
+                    <div class="card">
+                        <div class="img" style="background-color: #5c1d1d;"></div>
+                        <div class="product-name"><span>EJERCICIO 2</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio2"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 3-->
+                    <div class="card">
+                        <div class="img" style="background-color: #4e5c1d;"></div>
+                        <div class="product-name"><span>EJERCICIO 3</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio3"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 4-->
+                    <div class="card">
+                        <div class="img" style="background-color: #379fa3;"></div>
+                        <div class="product-name"><span>EJERCICIO 4</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio4"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 5-->
+                    <div class="card">
+                        <div class="img" style="background-color: #291d5c;"></div>
+                        <div class="product-name"><span>EJERCICIO 5</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio5"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 6-->
+                    <div class="card">
+                        <div class="img" style="background-color: #5c1d4c;"></div>
+                        <div class="product-name"><span>EJERCICIO 6</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio6"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                    <!--EJERCICIO 7-->
+                    <div class="card">
+                        <div class="img" style="background-color: #b7f159;"></div>
+                        <div class="product-name"><span>EJERCICIO 7</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio7"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                      <!--EJERCICIO 8-->
+                      <div class="card">
+                        <div class="img" style="background-color: #1a1f02;"></div>
+                        <div class="product-name"><span>EJERCICIO 8</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio8"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                      <!--EJERCICIO 9-->
+                      <div class="card">
+                        <div class="img" style="background-color: #166cdd;"></div>
+                        <div class="product-name"><span>EJERCICIO 9</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio9"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+                      <!--EJERCICIO 10-->
+                      <div class="card">
+                        <div class="img" style="background-color: #ee17ee;"></div>
+                        <div class="product-name"><span>EJERCICIO 10</span></div>
+                        <div class="overlay">
+                            <a class="detail" href="https://willyproz.github.io/pwapractica2/pwapractica/ejercicio10"  target="_blank"><span>Ir</span><span
+                                    class="fa fa-pencil"></span></a>
+                        </div>
+                    </div>
+
+
+                    <div class="card " style="box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0);"></div>
+                    <div class="card " style="box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0);"></div>
+
+                </div>
+            </div>
+            <!--FIN-->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EJERCICIO 3</title>
+    <style>
+        .imagen {
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <img id="imagenPrincipal" class="imagen" src="img/messi.jpg" onmouseover="cambiarImagen()" onmouseout="restaurarImagen()" alt="Imagen Principal">
+    <script>
+        function cambiarImagen() {
+            document.getElementById('imagenPrincipal').src = 'img/cr7.jpg';
+            document.getElementById('imagenPrincipal').style.transform = 'scale(1)'; 
+        }
+
+        function restaurarImagen() {
+            document.getElementById('imagenPrincipal').src = 'img/messi.jpg';
+            document.getElementById('imagenPrincipal').style.transform = 'scale(1)'; 
+        }
+    </script>
+</body>
+</html>
